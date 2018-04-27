@@ -2,7 +2,7 @@
   "name": "mp-vue-myliste",
   "version": "1.0.0",
   "description": "A Vue.js list component to be used in Goeland",
-  "main": "dist/my-liste.component.js"
+  "main": "dist/my-liste.component.js",
   "author": "Maurice Pittet <maurice.pittet@lausanne.ch>",
   "private": false,
   "scripts": {
