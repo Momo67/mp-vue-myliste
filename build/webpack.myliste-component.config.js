@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const utils = require('./utils')
 const APP_ABSOLUTE_PATH = path.join(__dirname, '../src');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -10,7 +11,7 @@ function resolve (dir) {
 module.exports = {
   entry: path.join(APP_ABSOLUTE_PATH, '/components/MyListe.vue'),
   output: {
-    library: 'mp-vue-myliste',
+    library: 'my-liste',
     libraryTarget: 'umd',
     path: path.resolve(__dirname + '/../dist/'),
     filename: 'my-liste.component.js',
@@ -29,6 +30,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
             presets: ['babel-preset-env']
@@ -93,16 +95,14 @@ module.exports = {
     ]
   },
   externals: {
+    jquery: 'jQuery'
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin( {
-      minimize : true,
-      sourceMap : false,
-      mangle: true,
-      compress: {
-        warnings: false
+    new UglifyJsPlugin({
+      sourceMap: true,
+      uglifyOptions: {
       }
-    } ),
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"testing"',
