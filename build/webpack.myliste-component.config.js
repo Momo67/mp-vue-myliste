@@ -105,7 +105,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"testing"',
+        NODE_ENV: '"production"',
         UI_ENV: JSON.stringify(process.env.UI_ENV || '')
       }
     })
