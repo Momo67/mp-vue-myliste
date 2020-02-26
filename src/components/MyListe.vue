@@ -31,7 +31,9 @@
       @vuetable:row-clicked="onRowClicked"
       @vuetable:loading="onLoading"
       tableClass="mywidth ui blue selectable celled stackable attached table"
-    ></vuetable>
+    >
+      <slot name="actions" v-bind:props="props"></slot>
+    </vuetable>
     <div class="vuetable-pagination ui basic segment grid" v-if="displayPagination">
       <vuetable-pagination-info ref="paginationInfo"
         infoTemplate="Affichage des objets {from} à {to} de {total}"
