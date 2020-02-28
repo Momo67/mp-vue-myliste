@@ -32,7 +32,9 @@
       @vuetable:loading="onLoading"
       tableClass="mywidth ui blue selectable celled stackable attached table"
     >
-      <slot name="actions" v-bind:props="props"></slot>
+      <template v-slot:actions="{ props: props }">
+        <slot name="actions-slot" v-bind:props="props"></slot>
+      </template>
     </vuetable>
     <div class="vuetable-pagination ui basic segment grid" v-if="displayPagination">
       <vuetable-pagination-info ref="paginationInfo"
