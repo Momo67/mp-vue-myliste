@@ -16,7 +16,11 @@
     "build-myliste": "webpack --config build/webpack.myliste-plugin.config.js",
     "build-myliste-semantic": "UI_ENV=semantic webpack --config build/webpack.myliste-plugin.config.js",
     "build-myliste-bootstrap": "UI_ENV=bootstrap webpack --config build/webpack.myliste-plugin.config.js",
-    "build-component": "webpack --config build/webpack.myliste-component.config.js"
+    "build-component": "webpack --config build/webpack.myliste-component.config.js",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.9"
   },
   "dependencies": {
     "axios": "^0.21.1",
